@@ -27,4 +27,5 @@ client.on('message', msg => {
   // permet de rechercher un pokemon et le faire évoluer
   pokemon.pokemon(msg)
 })
+
 client.login(config.token)
