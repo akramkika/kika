@@ -31,4 +31,5 @@ client.on('message', msg => {
   // permet d'effectuer une recherche spotify
   spotify.spotify(msg)
 })
+
 client.login(config.token)
