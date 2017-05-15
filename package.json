@@ -28,7 +28,8 @@
     "spotify": "^0.3.0",
     "spotify-web-api-node": "^2.4.0",
     "youtube-api": "^2.0.8",
-    "youtube-node": "^1.3.0"
+    "youtube-node": "^1.3.0",
+    "twitter": "^1.7.0"
   },
   "devDependencies": {
     "ava": "^0.19.1",
