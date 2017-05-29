@@ -15,11 +15,33 @@ client.on('message', msg => {
   if (msg.content === 'hello') {
     msg.channel.sendMessage('Hello to you too, fellow !')
   }
+
   if (msg.content.startsWith('!youtube ')) {
     var YouTube = require('youtube-node')
     var youTube = new YouTube()
     youTube.setKey('AIzaSyBqCmlXiZ1db_57J3LSqpaIFF-7B8DElLQ')
-    youTube.search(msg.content.substring(9), 2, function (error, result) {
+
+    if (msg.content.endsWith('--c')) {
+      youTube.addParam('type', 'channel')
+    } else if (msg.content.endsWith('--p')) {
+      youTube.addParam('type', 'playlist')
+    } else if (msg.content.endsWith('--v')) {
+      youTube.addParam('type', 'video')
+    } else {
+      youTube.addParam('type', 'video')
+    }
+
+    if (msg.content.endsWith('--c') || msg.content.endsWith('--p') || msg.content.endsWith('--v')) {
+      var a = (msg.content).length
+      var b = a - 3
+      var ask = msg.content.substring(9, b)
+    }
+
+    msg.channel.sendMessage('Hello, you ask for: ' + ask)
+
+    youTube.addParam('order', 'relevance')
+
+    youTube.search(ask, 3, function (error, result) {
       if (error) {
         console.log(error)
       } else {
@@ -29,6 +51,7 @@ client.on('message', msg => {
         }
       }
     })
+    msg.channel.sendMessage('Finish your research with --v --c --p to search for video channel playlist')
   }
 })
 
