@@ -1,6 +1,7 @@
 const Discord = require('discord.js')
 const config = require('./config.js')
 const client = new Discord.Client()
+var q
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`)
@@ -15,18 +16,18 @@ client.on('message', msg => {
   if (msg.content === 'hello') {
     msg.channel.sendMessage('Hello to you too, fellow !')
   }
-  if (msg.content === 'search') {
-    var search = require('youtube-search')
-    var opts = {
-      maxResults: 10,
-      key: 'AIzaSyBqCmlXiZ1db_57J3LSqpaIFF-7B8DElLQ'
-    }
-    search('deadmau5', opts, function (err, results) {
-      if (err) return console.log(err)
-      msg.channel.send(results)
-      for (var i in results.items) {
-        var item = results.items[i]
-        msg.channel.sendMessage('[%s] Title: %s', item.id.videoId, item.snippet.title)
+  if (msg.content.startsWith('!youtube ')) {
+    var YouTube = require('youtube-node')
+    var youTube = new YouTube()
+    youTube.setKey('AIzaSyBqCmlXiZ1db_57J3LSqpaIFF-7B8DElLQ')
+    youTube.search(msg.content.substring(9), 2, function (error, result) {
+      if (error) {
+        console.log(error)
+      } else {
+        for (var i in result.items) {
+          var item = result.items[i]
+          msg.channel.send('Title: ' + item.snippet.title + '\nVideo: ' + item.snippet.thumbnails.default.url)
+        }
       }
     })
   }
