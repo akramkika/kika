@@ -2,6 +2,7 @@ const Discord = require('discord.js')
 const config = require('./config.js')
 const client = new Discord.Client()
 var youtube = require('./youtube.js')
+var translate = require('./translate.js')
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`)
@@ -18,5 +19,8 @@ client.on('message', msg => {
   }
   // permet d'effectuer une recherche youtube
   youtube.searchYoutube(msg)
+
+  // permet d'effectuer une recherche youtube
+  translate.translate(msg)
 })
 client.login(config.token)
