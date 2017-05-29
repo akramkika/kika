@@ -1,8 +1,6 @@
 const Discord = require('discord.js')
 const config = require('./config.js')
 const client = new Discord.Client()
-var YouTube = require('youtube-node')
-var youTube = new YouTube()
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`)
@@ -17,15 +15,21 @@ client.on('message', msg => {
   if (msg.content === 'hello') {
     msg.channel.sendMessage('Hello to you too, fellow !')
   }
-
-  youTube.setKey('AIzaSyB1OOSpTREs85WUMvIgJvLTZKye4BVsoFU')
-  youTube.search('World War z Trailer', 2, function (error, result) {
-    if (error) {
-      console.log(error)
-    } else {
-      console.log(JSON.stringify(result, null, 2))
+  if (msg.content === 'search') {
+    var search = require('youtube-search')
+    var opts = {
+      maxResults: 10,
+      key: 'AIzaSyBqCmlXiZ1db_57J3LSqpaIFF-7B8DElLQ'
     }
-  })
+    search('deadmau5', opts, function (err, results) {
+      if (err) return console.log(err)
+      msg.channel.send(results)
+      for (var i in results.items) {
+        var item = results.items[i]
+        msg.channel.sendMessage('[%s] Title: %s', item.id.videoId, item.snippet.title)
+      }
+    })
+  }
 })
 
 client.login(config.token)
