@@ -35,6 +35,8 @@ client.on('message', msg => {
       var a = (msg.content).length
       var b = a - 3
       var ask = msg.content.substring(9, b)
+    } else {
+      ask = msg.content.substring(9)
     }
 
     msg.channel.sendMessage('Hello, you ask for: ' + ask)
@@ -54,5 +56,4 @@ client.on('message', msg => {
     msg.channel.sendMessage('Finish your research with --v --c --p to search for video channel playlist')
   }
 })
-
 client.login(config.token)
