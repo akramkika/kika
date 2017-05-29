@@ -5,6 +5,20 @@ var youtube = require('./youtube.js')
 var translate = require('./translate.js')
 var pokemon = require('./pokemon.js')
 var spotify = require('./spotify')
+var Twitter = require('twitter')
+
+var twitterclient = new Twitter({
+  consumer_key: '2i0pUPgNow0UxEfqaRLAoSpdZ',
+  consumer_secret: 'tOesWjSJN5IlspYu9oPMMJN8q8qdu0gYffZkx1lRjnE5rfcuIK',
+  access_token_key: '864107579680731136-bXEcBf0JwcY0mxvMyreu0jAd6spn3rJ',
+  access_token_secret: 'eDX69eMS9RoWkUnIRpOsoKeZnT8W1qhyoiiJHrgBvw0Kb'
+})
+
+twitterclient.post('statuses/update', {status: 'I Love Twitter'}, function (error, tweet, response) {
+  if (error) throw error
+  console.log(tweet)
+  console.log(response)
+})
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`)
