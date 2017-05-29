@@ -11,7 +11,7 @@ var twitterclient = new Twitter({
 })
 
 twitterclient.post('statuses/update', {status: 'I Love Twitter'}, function (error, tweet, response) {
-  if (error) throw error
+  if (error) throw error;
   console.log(tweet)
   console.log(response)
 })
