@@ -23,8 +23,7 @@
     "node-rest-client-promise": "^2.0.0",
     "nodemon": "^1.11.0",
     "youtube-api": "^2.0.8",
-    "youtube-node": "^1.3.0",
-    "youtube-search": "^1.0.9"
+    "youtube-node": "^1.3.0"
   },
   "devDependencies": {
     "ava": "^0.19.1",
