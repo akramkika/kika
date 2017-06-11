@@ -15,6 +15,26 @@ client.on('message', msg => {
   if (msg.content === 'hello') {
     msg.channel.sendMessage('Hello to you too, fellow !')
   }
+  if (msg.content.startsWith('!pokemon ')) {
+    msg.channel.sendMessage('Hello to you too, fellow !')
+    var Pokedex = require('pokedex-promise-v2')
+    var P = new Pokedex()
+    P.getPokemonByName('eevee') // with Promise
+    .then(function (response) {
+      console.log(response)
+    })
+    .catch(function (error) {
+      console.log('There was an ERROR: ', error)
+    })
+
+    P.getPokemonByName(34, function (response, error) { // with callback
+      if (!error) {
+        console.log(response)
+      } else {
+        console.log(error)
+      }
+    })
+  }
 })
 
 client.login(config.token)
