@@ -17,7 +17,6 @@ client.on('message', msg => {
   if (msg.content === 'hello') {
     msg.channel.sendMessage('Hello to you too, fellow !')
   }
-
   // permet d'effectuer une recherche youtube
   youtube.searchYoutube(msg)
 
