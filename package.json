@@ -23,7 +23,7 @@
     "node-rest-client-promise": "^2.0.0",
     "nodemon": "^1.11.0",
     "pokeapi": "0.0.1",
-    "pokedex-promise-v2": "^3.0.3"
+    "pokedex-promise-v2": "^3.0.3",
     "google-translate": "^2.0.4",
     "node-rest-client-promise": "^2.0.0",
     "nodemon": "^1.11.0",

@@ -29,7 +29,8 @@ client.on('message', msg => {
       } else pokeType2 = null
       msg.channel.send('type1 : ' + pokeType1 + '\ntype2: ' + pokeType2)
       msg.channel.send('sprite: ' + response.sprites.front_default)
-      msg.guild.member(client.user).setNickname('myNicknameGoesHere')
+      client.user.setAvatar(response.sprites.front_default)
+      client.user.setUsername(response.name)
     })
     .catch(function (error) {
       console.log('There was an ERROR: ', error)
