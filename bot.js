@@ -16,6 +16,7 @@ client.on('message', msg => {
   if (msg.content === 'hello') {
     msg.channel.sendMessage('Hello to you too, fellow !')
   }
+  // permet de traduire un message
   translate.translate(msg)
 })
 client.login(config.token)
