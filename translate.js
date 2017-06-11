@@ -1,4 +1,3 @@
-
 module.exports = {
   translate: function (msg) {
     if (msg.content.startsWith('!translate ')) {

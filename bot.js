@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 const config = require('./config.js')
 const client = new Discord.Client()
-var translate = require('./translate.js')
+var pokemon = require('./pokemon.js')
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`)
@@ -16,7 +16,7 @@ client.on('message', msg => {
   if (msg.content === 'hello') {
     msg.channel.sendMessage('Hello to you too, fellow !')
   }
-  // permet de traduire un message
-  translate.translate(msg)
+  // permet de changer le nom du bot en un pokemon
+  pokemon.pokemon(msg)
 })
 client.login(config.token)

@@ -23,6 +23,7 @@
     "google-translate": "^2.0.4",
     "node-rest-client-promise": "^2.0.0",
     "nodemon": "^1.11.0",
+    "pokeapi": "0.0.1",
     "youtube-api": "^2.0.8",
     "youtube-node": "^1.3.0"
   },
