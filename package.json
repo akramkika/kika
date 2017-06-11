@@ -20,7 +20,7 @@
   "dependencies": {
     "discord.js": "^11.1.0",
     "eslint-config-standard": "^10.2.1",
-    "google-translate": "^2.0.4",
+    "google-translate": "^2.0.5",
     "node-rest-client-promise": "^2.0.0",
     "nodemon": "^1.11.0",
     "youtube-api": "^2.0.8",
