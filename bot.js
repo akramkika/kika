@@ -19,20 +19,20 @@ client.on('message', msg => {
     msg.channel.sendMessage('Hello to you too, fellow !')
     var Pokedex = require('pokedex-promise-v2')
     var P = new Pokedex()
-    P.getPokemonByName('eevee') // with Promise
+    P.getPokemonByName(msg.content.substring(9)) // with Promise
     .then(function (response) {
       console.log(response)
+      msg.channel.send('name: ' + response.name + '\nid: ' + response.id + '\nheight: ' + response.height + '\nweight: ' + response.weight)
+      var pokeType1 = response.types[0].type.name
+      if (response.types.length === 2) {
+        var pokeType2 = response.types[1].type.name
+      } else pokeType2 = null
+      msg.channel.send('type1 : ' + pokeType1 + '\ntype2: ' + pokeType2)
+      msg.channel.send('sprite: ' + response.sprites.front_default)
+      msg.guild.member(client.user).setNickname('myNicknameGoesHere')
     })
     .catch(function (error) {
       console.log('There was an ERROR: ', error)
-    })
-
-    P.getPokemonByName(34, function (response, error) { // with callback
-      if (!error) {
-        console.log(response)
-      } else {
-        console.log(error)
-      }
     })
   }
 })
