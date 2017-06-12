@@ -5,6 +5,7 @@ var twitter = require('./twitter.js')
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`)
+  twitter.listenAccount()
 })
 
 client.on('message', msg => {
@@ -14,10 +15,9 @@ client.on('message', msg => {
   // dm=directmessage
   // If message is hello, post hello too
   if (msg.content === 'hello') {
-    msg.channel.sendMessage('Hello to you too, fellow !')
+    msg.channel.send('Hello to you too, fellow !')
   }
   // permet de tweeter avec l'utilisation de "!tweet"
   twitter.sendTweet(msg)
 })
-
 client.login(config.token)

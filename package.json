@@ -21,6 +21,9 @@
     "discord.js": "^11.1.0",
     "eslint-config-standard": "^10.2.1",
     "node-rest-client-promise": "^2.0.0",
+    "openweathermap": "^1.0.0",
+    "openweathermap-js": "^1.0.1",
+    "request": "^2.81.0",
     "twitter": "^1.7.0"
   },
   "devDependencies": {
