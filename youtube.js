@@ -1,5 +1,6 @@
 var YouTube = require('youtube-node')
 var youTube = new YouTube()
+
 module.exports = {
   searchYoutube: function (msg) {
     if (msg.content.startsWith('!youtube ')) {
