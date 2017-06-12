@@ -102,18 +102,19 @@ module.exports = {
           evoChain.push(evoData.species.name)
           evoData = evoData['evolves_to'][0]
         } while (!!evoData && evoData.hasOwnProperty('evolves_to'))
-        // console.log(evoChain)
+        console.log(evoChain)
         var nbrEvol = evoChain.length
+        console.log(nbrEvol)
         for (var i = 0; i < nbrEvol; i++) {
           if (evoChain[i] === pkm) {
             var order = i
           }
         }
-        if (order < nbrEvol) {
+        if (order < nbrEvol - 1) {
           msg.channel.send('pokemon ' + pkm + ' can evolve in ' + evoChain[order + 1])
           pokeInfo(evoChain[order + 1])
         } else {
-          msg.channel.send('pokemon cannot evolve')
+          msg.channel.send('pokemon ' + pkm + ' cannot evolve')
         }
       })
       .catch(function (error) {
