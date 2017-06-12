@@ -7,14 +7,20 @@ module.exports = {
       youTube.setKey('AIzaSyBqCmlXiZ1db_57J3LSqpaIFF-7B8DElLQ')
 
       if (msg.content.endsWith('--c')) {
-        youTube.addParam('type', 'channel')
+        var url = 'https://www.youtube.com/channel/'
+        var tp = 'channel'
       } else if (msg.content.endsWith('--p')) {
-        youTube.addParam('type', 'playlist')
+        url = 'https://www.youtube.com/playlist?list='
+        tp = 'playlist'
       } else if (msg.content.endsWith('--v')) {
-        youTube.addParam('type', 'video')
+        url = 'https://www.youtube.com/watch?v='
+        tp = 'video'
       } else {
-        youTube.addParam('type', 'video')
+        url = 'https://www.youtube.com/watch?v='
+        tp = 'video'
       }
+
+      youTube.addParam('type', tp)
 
       if (msg.content.endsWith('--c') || msg.content.endsWith('--p') || msg.content.endsWith('--v')) {
         var a = (msg.content).length
@@ -24,7 +30,7 @@ module.exports = {
         ask = msg.content.substring(9)
       }
 
-      msg.channel.sendMessage('Hello, you ask for: ' + ask)
+      msg.channel.sendMessage('Hello, you search is: ' + ask + ' by ' + tp)
 
       youTube.addParam('order', 'relevance')
 
@@ -32,13 +38,21 @@ module.exports = {
         if (error) {
           console.log(error)
         } else {
+          // console.log(JSON.stringify(result, null, 2))
           for (var i in result.items) {
             var item = result.items[i]
-            msg.channel.send('Title: ' + item.snippet.title + '\nVideo: ' + item.snippet.thumbnails.default.url)
+            msg.channel.send('\nTitle: ' + item.snippet.title)
+            if (tp === 'video') {
+              msg.channel.send('\nVideo: ' + url + item.id.videoId)
+            } else if (tp === 'playlist') {
+              msg.channel.send('\nVideo: ' + url + item.id.playlistId)
+            } else {
+              msg.channel.send('\nVideo: ' + url + item.id.channelId)
+            }
           }
         }
       })
-      msg.channel.sendMessage('Finish your research with --v --c --p to search for video channel playlist')
+      msg.channel.sendMessage('Finish your research with --v --c --p to search by video, by channel or by playlist')
     }
   }
 }
