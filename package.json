@@ -18,10 +18,13 @@
   },
   "homepage": "https://gitlab.com/pierrick.bignet/cloud-discord-bot#README",
   "dependencies": {
+    "async": "^2.4.1",
     "discord.js": "^11.1.0",
     "eslint-config-standard": "^10.2.1",
     "node-rest-client-promise": "^2.0.0",
-    "spotify": "^0.3.0"
+    "nodemon": "^1.11.0",
+    "spotify": "^0.3.0",
+    "spotify-web-api-node": "^2.4.0"
   },
   "devDependencies": {
     "ava": "^0.19.1",
