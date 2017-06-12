@@ -18,11 +18,11 @@ module.exports = {
         if (err) {
           console.log(err)
         } else {
-          msg.channel.send(translation.translatedText)
+          msg.channel.send('Hello, you translate (in ' + lang + ') : ' + txt + ' ---> ' + translation.translatedText)
           // =>  Mi nombre es Brandon
         }
+        msg.channel.sendMessage('Finish your research with --*language in abbreviation* (ex: --en for english) to translate in a specified language (english by default)')
       })
-      msg.channel.sendMessage('Finish your research with --*language in abbreviation* (ex: --en for english) to translate in a specified language ')
     }
   }
 }
