@@ -10,12 +10,22 @@ module.exports = {
             console.log(error)
             throw error
           }
-          console.log(tweet)
-          console.log(response)
+          // console.log(tweet)
+          // console.log(response)
         })
       } else {
         msg.channel.sendMessage('Le tweet est trop loooooooooong mamene...')
       }
     }
+  },
+  listenAccount: function () {
+    twitterclient.stream('statuses/filter', {track: '#botweet_jat'}, function (stream) {
+      stream.on('data', function (tweet) {
+        console.log(tweet.text)
+      })
+      stream.on('error', function (error) {
+        console.log(error)
+      })
+    })
   }
 }
