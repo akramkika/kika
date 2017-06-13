@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 const config = require('./config.js')
 const client = new Discord.Client()
-var twitter = require('./twitter.js')
+var weather = require('./openweathermap.js')
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`)
@@ -14,10 +14,9 @@ client.on('message', msg => {
   // dm=directmessage
   // If message is hello, post hello too
   if (msg.content === 'hello') {
-    msg.channel.sendMessage('Hello to you too, fellow !')
+    msg.channel.send('Hello to you too, fellow !')
   }
-  // permet de tweeter avec l'utilisation de "!tweet"
-  twitter.sendTweet(msg)
+  weather.Now(msg)
+  weather.Forecast(msg)
 })
-
 client.login(config.token)
