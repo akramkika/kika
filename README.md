@@ -1,6 +1,7 @@
-GROUPE : Théo HUGES
+GROUPE :
+Théo HUGUES
 Alexis PINEL-SANTANGELLI
-Jerémy GOUROU
+Jérémy GOUROU
 
 Commande:
 
