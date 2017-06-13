@@ -3,7 +3,7 @@ Théo HUGUES
 Alexis PINEL-SANTANGELLI
 Jérémy GOUROU
 
-Commande:
+COMMANDS:
 
 !pokemon *pokemon* : display infos on pokemon and change avatar and name of the bot (only if it's possible)
 !pokemon evolve : displays infos on evolution if it exists
