@@ -24,15 +24,15 @@
     "google-translate": "^2.0.5",
     "node-rest-client-promise": "^2.0.0",
     "nodemon": "^1.11.0",
+    "openweathermap": "^1.0.0",
+    "openweathermap-js": "^1.0.1",
     "pokedex-promise-v2": "^3.0.3",
+    "request": "^2.81.0",
     "spotify": "^0.3.0",
     "spotify-web-api-node": "^2.4.0",
     "twitter": "^1.7.0",
     "youtube-api": "^2.0.8",
-    "youtube-node": "^1.3.0",
-    "openweathermap": "^1.0.0",
-    "openweathermap-js": "^1.0.1",
-    "request": "^2.81.0"
+    "youtube-node": "^1.3.0"
   },
   "devDependencies": {
     "ava": "^0.19.1",
