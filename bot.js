@@ -4,6 +4,7 @@ const client = new Discord.Client()
 var youtube = require('./youtube.js')
 var translate = require('./translate.js')
 var pokemon = require('./pokemon.js')
+var spotify = require('./spotify')
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`)
@@ -26,5 +27,8 @@ client.on('message', msg => {
 
   // permet de rechercher un pokemon et le faire évoluer
   pokemon.pokemon(msg)
+
+  // permet d'effectuer une recherche spotify
+  spotify.spotify(msg)
 })
 client.login(config.token)
