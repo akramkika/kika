@@ -6,10 +6,10 @@ var translate = require('./translate.js')
 var pokemon = require('./pokemon.js')
 var spotify = require('./spotify')
 var twitter = require('./twitter.js')
+var weather = require('./services/openweathermap.js')
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`)
-  twitter.listenAccount()
 })
 
 client.on('message', msg => {
@@ -21,6 +21,7 @@ client.on('message', msg => {
   if (msg.content === 'hello') {
     msg.channel.send('Hello to you too, fellow !')
   }
+
   // permet d'effectuer une recherche youtube
   youtube.searchYoutube(msg)
 
@@ -35,5 +36,8 @@ client.on('message', msg => {
 
   // permet d'effectuer une recherche spotify
   spotify.spotify(msg)
+
+  weather.Now(msg)
+  weather.Forecast(msg)
 })
 client.login(config.token)
