@@ -4,7 +4,6 @@ const client = new Discord.Client()
 var twitter = require('./services/twitter.js')
 
 function sendMessage (content) {
-  console.log(content)
   for (var channel of client.channels) {
     var c = client.channels.get(channel[0])
     c.send('Tweet reçu sur #botweet_jat :  ' + content)

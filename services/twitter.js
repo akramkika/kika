@@ -21,7 +21,6 @@ module.exports = {
     twitterclient.stream('statuses/filter', {track: '#botweet_jat'}, function (stream) {
       stream.on('data', function (tweet) {
         if (callback) {
-          console.log(tweet.text)
           callback(tweet.text)
         }
       })
