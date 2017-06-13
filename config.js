@@ -7,6 +7,7 @@ module.exports = {
   access_token_secret: 'eDX69eMS9RoWkUnIRpOsoKeZnT8W1qhyoiiJHrgBvw0Kb',
   apiKey: 'AIzaSyBqCmlXiZ1db_57J3LSqpaIFF-7B8DElLQ',
   clientId: '132f44ff456c41d29d544a608b448bbd',
-  clientSecret: '25d2c3ee445140bfa9aaa3d6bcdc194b'
+  clientSecret: '25d2c3ee445140bfa9aaa3d6bcdc194b',
+  owm_token: 'fe3e3d9cb7972b81bc65b18feb8c132a'
 
 }

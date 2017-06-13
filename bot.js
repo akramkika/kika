@@ -41,5 +41,4 @@ client.on('message', msg => {
   weather.Now(msg)
   weather.Forecast(msg)
 })
-
 client.login(config.token)
