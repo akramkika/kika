@@ -5,11 +5,12 @@ var youtube = require('./youtube.js')
 var translate = require('./translate.js')
 var pokemon = require('./pokemon.js')
 var spotify = require('./spotify')
-var twitter = require('./twitter.js')
 var weather = require('./services/openweathermap.js')
+var twitter = require('./services/twitter.js')
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`)
+  twitter.listenAccount()
 })
 
 client.on('message', msg => {

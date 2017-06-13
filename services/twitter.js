@@ -1,9 +1,9 @@
 var Twitter = require('twitter')
-var twitterclient = new Twitter(require('./config.js'))
+var twitterclient = new Twitter(require('../config.js'))
 
 module.exports = {
   sendTweet: function (msg) {
-    if (msg.content.indexOf('!tweet ') !== -1) {
+    if (msg.content.startsWith('!tweet ') !== -1) {
       if (msg.content.length <= 146) {
         twitterclient.post('statuses/update', {status: msg.content.substring(6)}, function (error, tweet, response) {
           if (error) {
