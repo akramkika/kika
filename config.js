@@ -1,5 +1,5 @@
 module.exports = {
-  token: 'MzEzNjQ2ODI4ODk1ODYyNzg0.C_srsg.kFa5FV_2ZMvwbq4l_QbLtpHaOJk',
+  token: 'MzE2MTkyOTg2MDAwMTMwMDYw.DB9cAw.q5r2BibrDi2S43i-zajLcvnlQA4',
   channel: 'channelid',
   consumer_key: '2i0pUPgNow0UxEfqaRLAoSpdZ',
   consumer_secret: 'tOesWjSJN5IlspYu9oPMMJN8q8qdu0gYffZkx1lRjnE5rfcuIK',
