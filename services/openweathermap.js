@@ -5,15 +5,15 @@ var querystring = require('querystring')
 
 var openWeatherMapQuery = querystring.stringify({
   units: 'metric',
-  APPID: config.owm_token,
-  mode: 'json',
-  lang: 'fr'
+  lang: 'fr',
+  APPID: config.owm_token
 })
 
 module.exports = {
   Now: function (msg, callback) {
     if (msg.content.startsWith('!weather ')) {
-      weather.getPromise('http://api.openweathermap.org/data/2.5/weather?q=' + msg.content.substring(9) + openWeatherMapQuery)
+      var a = 'http://api.openweathermap.org/data/2.5/weather?q=' + msg.content.substring(9) + '&' + openWeatherMapQuery
+      weather.getPromise(a)
       .catch((error) => {
         throw error
       })
@@ -31,11 +31,13 @@ module.exports = {
   },
   Forecast: function (msg, callback) {
     if (msg.content.startsWith('!forecast ')) {
-      weather.getPromise('http://api.openweathermap.org/data/2.5/forecast?lang=fr,q=' + msg.content.substring(10) + openWeatherMapQuery)
+      var a = 'http://api.openweathermap.org/data/2.5/forecast?q=' + msg.content.substring(10) + '&' + openWeatherMapQuery
+      weather.getPromise(a)
       .catch((error) => {
         throw error
       })
       .then((res) => {
+        console.log(res.data.list[0].main)
         var text = ''
         var x = res.data.cnt / 5
         var i = 1
