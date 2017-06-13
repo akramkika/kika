@@ -3,9 +3,18 @@ const config = require('./config.js')
 const client = new Discord.Client()
 var twitter = require('./services/twitter.js')
 
+function sendMessage (content) {
+  console.log(content)
+  for (var channel of client.channels) {
+    var c = client.channels.get(channel[0])
+    c.send('Tweet reçu sur #botweet_jat :  ' + content)
+  }
+}
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`)
-  twitter.listenAccount()
+  // fonction d'écoute sur #botweet_jat
+  twitter.listenAccount(sendMessage)
 })
 
 client.on('message', msg => {
@@ -17,6 +26,7 @@ client.on('message', msg => {
   if (msg.content === 'hello') {
     msg.channel.send('Hello to you too, fellow !')
   }
+  // permet de tweeter un message grâce à la commande !tweet
   twitter.sendTweet(msg)
 })
 client.login(config.token)

@@ -17,10 +17,13 @@ module.exports = {
       }
     }
   },
-  listenAccount: function (msg) {
+  listenAccount: function (callback) {
     twitterclient.stream('statuses/filter', {track: '#botweet_jat'}, function (stream) {
       stream.on('data', function (tweet) {
-        console.log(tweet.text)
+        if (callback) {
+          console.log(tweet.text)
+          callback(tweet.text)
+        }
       })
       stream.on('error', function (error) {
         console.log(error)
