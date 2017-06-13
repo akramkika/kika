@@ -3,7 +3,7 @@ const config = require('../config.js')
 module.exports = {
   translate: function (msg) {
     if (msg.content.startsWith('!translate ')) {
-      var googleTranslate = require('google-translate')(config.apiKey)
+      var googleTranslate = require('google-translate')(config.youtubeKey)
       var txt = msg.content.substring(11)
       if ((txt).includes('--')) {
         var w = (msg.content.substring(0)).lastIndexOf('--')
