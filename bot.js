@@ -1,6 +1,7 @@
 const Discord = require('discord.js')
 const config = require('./config.js')
 const client = new Discord.Client()
+
 var youtube = require('./services/youtube.js')
 var translate = require('./services/translate.js')
 var pokemon = require('./services/pokemon.js')
@@ -22,7 +23,6 @@ client.on('message', msg => {
   if (msg.content === 'hello') {
     msg.channel.send('Hello to you too, fellow !')
   }
-
   // permet d'effectuer une recherche youtube
   youtube.searchYoutube(msg)
 
