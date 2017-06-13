@@ -1,10 +1,11 @@
 const Discord = require('discord.js')
 const config = require('./config.js')
 const client = new Discord.Client()
-var weather = require('./services/openweathermap.js')
+var twitter = require('./services/twitter.js')
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`)
+  twitter.listenAccount()
 })
 
 client.on('message', msg => {
@@ -16,7 +17,6 @@ client.on('message', msg => {
   if (msg.content === 'hello') {
     msg.channel.send('Hello to you too, fellow !')
   }
-  weather.Now(msg)
-  weather.Forecast(msg)
+  twitter.sendTweet(msg)
 })
 client.login(config.token)
